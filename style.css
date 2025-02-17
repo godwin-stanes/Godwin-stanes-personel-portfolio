@@ -5,7 +5,14 @@
             --skillItemBg: #fcf2ee;
             --progressBarColor: #5B2333;
         }
-        
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bgColor: #282828;
+                --fColor: #e0e0e0;
+                --skillItemBg: #383838;
+                --progressBarColor: #8d6571;
+            }
+        }
         body {
             margin: 0;
             padding: 0;
@@ -1200,9 +1207,7 @@
         box-shadow: 0 0 10px grey;
     }
             .contInfo p,.contInfo span{
-        font-size: 15px;
+        font-size: 13px;
     }
-        .contInfo,.formContainer{
-        padding: 10px;
-    }
+      
 }
