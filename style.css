@@ -1192,3 +1192,20 @@
         margin: 0;
     }
 }
+@media all and (max-width: 800px){
+    footer{
+        font-size: 10px;
+    }
+    .contInfo,.formContainer{
+        box-shadow: 0 0 10px grey;
+    }
+    .contInfo p,.contInfo span{
+        font-size: 11px;
+    }
+
+}
+@media all and (max-width: 350px){
+    .contInfo,.formContainer{
+        padding: 10px;
+    }
+}
