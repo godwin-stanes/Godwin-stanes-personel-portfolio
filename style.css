@@ -1200,7 +1200,7 @@
         box-shadow: 0 0 10px grey;
     }
 }
-@media all and (max-width: 370px){
+@media all and (max-width: 390px){
     .contInfo,.formContainer{
         padding: 10px;
     }
