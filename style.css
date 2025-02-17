@@ -1202,11 +1202,7 @@
             .contInfo p,.contInfo span{
         font-size: 15px;
     }
-}
-@media all and (max-width: 390px){
-    .contInfo,.formContainer{
+        .contInfo,.formContainer{
         padding: 10px;
     }
-    
-
 }
