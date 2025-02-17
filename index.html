@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grechen+Fuemen&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="assets/Portfolio Logo.png">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section id="home" class="homePageSection">
+        <div class="header">
+            <h1>Welcome</h1>
+            <i class="fa-solid fa-bars" aria-label="Toggle Navigation" aria-expanded="false"></i>
+            <nav>
+                <ul>
+                    <ul>
+                        <li onclick="scrollToSection('home')">Home</li>
+                        <li onclick="scrollToSection('skills')">About</li>
+                        <li onclick="scrollToSection('skills')">Skills</li>
+                        <li onclick="scrollToSection('projects')">Project</li>
+                        <li onclick="scrollToSection('contact')">Contact</li>
+                    </ul>
+                </ul>
+            </nav>
+        </div>
+        <div class="socialMedia">
+            <a href="https://github.com/MohanCheenu" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/mohan-m-1a165a309/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.behance.net/mohanm32" target="_blank" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
+            <a href="https://www.instagram.com/mohan_cheenu?igsh=YXNwbTFyZWY3YTdo" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/9944703738" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+        <div class="intro">
+            <p>Hi, I’m <span id="mohan">Mohan</span><br>
+                An enthusiastic <br>
+                <span class="text-container" id="text1">Web Developer</span>
+                <span class="text-container" id="text2">Data Analyst</span>
+                <span class="text-container" id="text3">Python Developer</span>
+                <br>ready to bring fresh ideas and <br>
+                creative solutions to your projects.</p>
+        </div>
+        <div class="profile">
+            <div id="inner">
+                <img src="assets/Me.png" alt="profile">
+            </div>
+        </div>
+        <div class="hireButton">
+            <a class="resume" id="res" href="assets/Mohan M Resume.pdf" download>Resume</a>
+            <a class="resume" id="hireMe" href="mailto:mohancheenu04@gmail.com">Hire Me</a>
+        </div>
+    </section>
+
+    <section id="skills" class="skillsPageSection">
+        <div class="header">
+            <h1>What I do</h1>
+        </div>
+        <div class="intro-container">
+            <p class="intro-text">Hi, I'm Mohan, a passionate Web Developer, Data Analyst, and Python Programmer with a strong foundation in computer science.</p>
+            <button class="readme-button" onclick="togglePopup('popupAnimated')">Read Me</button>
+        </div>
+        <div class="skillsContent">
+            <div class="skillsGrid">
+                <div class="skillItem">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png" alt="HTML">
+                    <span>HTML</span>
+                    <div class="knowledge-level"><div class="progress-bar" style="width: 90%;"></div></div>
+                </div>
+                <div class="skillItem">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/363px-CSS3_logo_and_wordmark.svg.png" alt="CSS">
+                    <span>CSS</span>
+                    <div class="knowledge-level"><div class="progress-bar" style="width: 70%;"></div></div>
+                </div>
+                <div class="skillItem">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png" alt="JavaScript">
+                    <span>JavaScript</span>
+                    <div class="knowledge-level"><div class="progress-bar" style="width: 45%;"></div></div>
+                </div>
+                <div class="skillItem">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" alt="React JS">
+                    <span>React JS</span>
+                    <div class="knowledge-level"><div class="progress-bar" style="width: 30%;"></div></div>
+                </div>
+                <div class="skillItem">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png" alt="GitHub">
+                    <span>GitHub</span>
+                    <div class="knowledge-level"><div class="progress-bar" style="width: 90%;"></div></div>
+                </div>
+                <div class="skillItem">
+                    <img src="https://img.icons8.com/color/48/mongodb.png" alt="MongoDB"/>
+                    <span>MongoDB</span>
+                    <div class="knowledge-level"><div class="progress-bar" style="width: 40%;"></div></div>
+                </div>
+                <div class="skillItem">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png" alt="Python">
+                    <span>Python</span>
+                    <div class="knowledge-level"><div class="progress-bar" style="width: 60%;"></div></div>
+                </div>
+                <div class="skillItem">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Pandas_logo.svg/1200px-Pandas_logo.svg.png" alt="Pandas">
+                    <span>Pandas</span>
+                    <div class="knowledge-level"><div class="progress-bar" style="width: 40%;"></div></div>
+                </div>
+                <div class="skillItem">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/New_Power_BI_Logo.svg/1200px-New_Power_BI_Logo.svg.png" alt="Power BI">
+                    <span>Power BI</span>
+                    <div class="knowledge-level"><div class="progress-bar" style="width: 60%;"></div></div>
+                </div>
+                <div class="skillItem">
+                    <img src="https://img.icons8.com/color/48/microsoft-excel-2019--v1.png" alt="Excel"/>
+                    <span>Excel</span>
+                    <div class="knowledge-level"><div class="progress-bar" style="width: 70%;"></div></div>
+                </div>
+                <div class="skillItem">
+                    <img src="https://img.icons8.com/color/48/sql.png" alt="SQL"/>
+                    <span>SQL</span>
+                    <div class="knowledge-level"><div class="progress-bar" style="width: 60%;"></div></div>
+                </div>
+                <div class="skillItem">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/1200px-Adobe_Photoshop_CC_icon.svg.png" alt="Photoshop">
+                    <span>Photoshop</span>
+                    <div class="knowledge-level"><div class="progress-bar" style="width: 40%;"></div></div>
+                </div>
+                <div class="skillItem">
+                    <img src="https://img.icons8.com/color/48/microsoft-powerpoint-2019--v1.png" alt="PowerPoint"/>
+                    <span>PowerPoint</span>
+                    <div class="knowledge-level"><div class="progress-bar" style="width: 60%;"></div></div>
+                </div>
+                <div class="skillItem">
+                    <img src="https://img.icons8.com/color/48/canva.png" alt="Canva"/>
+                    <span>Canva</span>
+                    <div class="knowledge-level"><div class="progress-bar" style="width: 80%;"></div></div>
+                </div>
+                <div class="skillItem">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/1200px-Figma-logo.svg.png" alt="Figma">
+                    <span>Figma</span>
+                    <div class="knowledge-level"><div class="progress-bar" style="width: 40%;"></div></div>
+                </div>
+                <div class="skillItem">
+                    <img src="https://img.icons8.com/color/48/wordpress.png" alt="WordPress">
+                    <span>WordPress</span>
+                        <div class="knowledge-level"><div class="progress-bar" style="width: 50%;"></div></div>
+                    </div>
+                    <div class="skillItem">
+                        <img src="https://img.icons8.com/color/48/git.png" alt="Git">
+                        <span>Version Control (Git)</span>
+                        <div class="knowledge-level"><div class="progress-bar" style="width: 60%;"></div></div>
+                    </div>
+                    <div class="skillItem">
+                        <img src="https://img.icons8.com/color/48/windows-10.png" alt="Windows">
+                        <span>Windows OS</span>
+                        <div class="knowledge-level"><div class="progress-bar" style="width: 70%;"></div></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div id="popupAnimated" class="popup">
+            <span class="popup-close" onclick="togglePopup('popupAnimated')">&times;</span>
+            <div class="popup-content" id="animatedTextContainer"></div>
+        </div>
+        <div id="popupDescription" class="popup">
+            <span class="popup-close" onclick="togglePopup('popupDescription')">&times;</span>
+            <div class="popup-content">
+                <p>
+                    Hi, I'm Mohan, a passionate Web Developer, Data Analyst, and Python Programmer with a strong foundation in computer science. I graduated with a B.Sc. in Computer Science from SRM University (2024) and am continuously enhancing my technical expertise to stay ahead in the ever-evolving tech landscape.<br><br>
+                    My skill set spans across web development, data analytics, and design. I have a strong command over HTML, CSS, and JavaScript, enabling me to build structured, responsive, and interactive web applications. I am also proficient in React.js, which allows me to create dynamic user interfaces. Version control is a crucial part of my workflow, and I have extensive experience with Git and GitHub for efficient collaboration and code management.<br><br>
+                    In the field of data analytics, I work with Python, particularly using Pandas for data manipulation and analysis. I have a solid understanding of SQL for querying and managing relational databases, along with experience in MongoDB for handling NoSQL databases. Additionally, I use Power BI and Excel for data visualization, reporting, and business intelligence.<br><br>
+                    Beyond development and analytics, I also have experience in graphic design and presentation tools like Photoshop, Canva, Figma, and PowerPoint, allowing me to create visually compelling designs and reports.<br><br>
+                    Currently, I am deepening my expertise in data analytics and web development to bridge the gap between technology and business solutions. My goal is to apply my skills to real-world projects, build scalable applications, and drive impactful insights through data. I am always eager to collaborate on innovative ideas and explore new challenges in the tech industry.<br><br>Let’s connect and create something amazing together!
+                </p>
+            </div>
+        </div>
+    </section>
+    <section id="projects" class="projectsPageSection">
+        <div class="header">
+            <h1>My Work</h1>
+        </div>
+        <div class="projectsIntro">
+            <p>Look at My projects</p>
+        </div>
+        <div class="projectsBio">
+            <p class="animated-text">
+            With expertise in Python, JavaScript, and Data Analytics, I develop innovative solutions that streamline workflows and enhance decision-making. My strong analytical skills, combined with hands-on experience in web development and data-driven projects, enable me to build efficient and scalable applications. Passionate about solving real-world challenges, I focus on creating impactful solutions that bridge technology and practical needs.
+            </p>
+        </div>
+        <div class="projectsGrid">
+            <div class="projectItem">
+                <img src="assets/1.png" alt="Clip Art and Illustrations">
+                <span>Hand Gesture Control for Mouse Interaction Using Python</span>
+                <p>A virtual mouse using hand gestures allows users to control a computer's cursor by tracking their hand movements.</p>
+                <div class="projectDetail">
+                    <p>This project allows users to control the mouse cursor and perform left/right clicks using hand gestures. It uses OpenCV for real-time video capture, MediaPipe for hand gesture recognition, and PyAutoGUI for mouse control. By recognizing specific hand gestures like "pinch" and "double-finger," the program simulates mouse actions.</p>
+                    <a href="https://github.com/yourusername/yourrepo" target="_blank" class="githubLink">GitHub</a>
+                </div>
+            </div>
+            <div class="projectItem">
+                <img src="assets/2.png" alt="Shopify App Store">
+                <span>Automated Excel to Interactive Dashboard Using Pandas</span>
+                <p>Transform your Excel data into dynamic dashboards effortlessly with this Streamlit application.</p>
+                <div class="projectDetail">
+                    <p>This Streamlit application enables users to upload an Excel file, select a sheet, and visualize the data using interactive charts. It also provides summary statistics (e.g., sum, mean, and median) and supports various chart types like line charts, bar charts, pie charts, scatter plots, histograms, and box plots.</p>
+                    <a href="https://github.com/MohanCheenu/Excel-to-Dashboard-Charts-Using-Python-" target="_blank" class="githubLink">GitHub</a>
+                </div>
+            </div>
+            <div class="projectItem">
+                <img src="assets/3.png" alt="Digital Marketing">
+                <span>HR Analytics Dashboard Using PowerBi</span>
+                <p>Visualize employee data with clarity. This HR analytics dashboard empowers data-driven decisions.</p>
+                <div class="projectDetail">
+                    <p>This HR Analytics Dashboard provides a comprehensive view of critical employee data, enabling data-driven decisions for improved workforce management. Through interactive visualizations, key metrics like attrition rates, employee demographics, and job satisfaction are presented, empowering HR professionals and business leaders to optimize talent strategies and drive organizational success.</p>
+                    <a href="https://github.com/yourusername/yourrepo" target="_blank" class="githubLink">GitHub</a>
+                </div>
+            </div>
+            <div class="projectItem">
+                <img src="assets/4.png" alt="Digital Marketing">
+                <span>Responsive Portfolio Using HTML, CSS and JavaScript</span>
+                <p>Discover innovative solutions and creative designs. Explore our portfolio to see how we transform ideas into reality.</p>
+                <div class="projectDetail">
+                    <p>portfolio reflects a commitment to excellence and a dedication to crafting unique solutions for our clients. We specialize in blending creativity with technical proficiency to deliver projects that not only meet but exceed expectations. Whether it's developing engaging graphics, building robust e-commerce solutions, or implementing strategic digital marketing campaigns, we strive to create impactful experiences.</p>
+                    <a href="https://github.com/yourusername/yourrepo" target="_blank" class="githubLink">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contactPageSection">
+        <h1 class="headContact">Contact Me</h1>
+        <div class="formContainer">
+            <h1>Send me a mail</h1>
+            <form id="contact-form">
+                <input type="text" name="first_name" placeholder="First Name" required />
+                <input type="text" name="last_name" placeholder="Last Name" required />
+                <input type="email" name="email" placeholder="Your Email" required />
+                <input type="text" name="subject" placeholder="Subject" required />
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button class="sendMail" type="submit">Send Message</button>
+                <div id="message-status"></div>
+            </form>
+        </div>
+        <div class="contInfo">
+            <h1>Contact Me</h1>
+            <p>I'am Open for any suggestion or just to have a chat</p>
+            <div class="contAddress">
+                <p class="add"><i class="fa-solid fa-location-dot"></i>Address : <span>487, Baba Nagar, Sunnambukulam, Gummudipoondi, India 601 201 </span></p>
+                <p class="phone"><i class="fa-solid fa-phone"></i>Phone :<span> +91 9944703738</span></p>
+                <p class="mail"><i class="fa-solid fa-paper-plane"></i>Email :<span> mohancheenu04@gmail.com</span></p>
+                <p class="insta"><i class="fa-brands fa-instagram"></i>Instagram : <span>mohan_cheenu</span></p>
+            </div>
+        </div>
+    </section>
+    <footer id="copyright" align="center">© 2025 - <?php echo date('Y'); ?> www.mohanportfolio.infy.uk  - All Rights Reserved
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
