@@ -1199,13 +1199,13 @@
     .contInfo,.formContainer{
         box-shadow: 0 0 10px grey;
     }
-    .contInfo p,.contInfo span{
-        font-size: 11px;
-    }
-
 }
-@media all and (max-width: 350px){
+@media all and (max-width: 370px){
     .contInfo,.formContainer{
         padding: 10px;
+    }
+    
+    .contInfo p,.contInfo span{
+        font-size: 11px;
     }
 }
