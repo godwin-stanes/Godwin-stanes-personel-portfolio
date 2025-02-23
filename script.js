@@ -178,7 +178,7 @@ document.querySelectorAll('.wrapper .button').forEach(button => {
   button.addEventListener('click', function (event) {
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
     if (isMobile) {
-      event.preventDefault(); // Prevent default behavior
+      event.preventDefault(); // Prevent default navigation
 
       const isExpanded = this.getAttribute('data-expanded') === 'true';
 
@@ -192,7 +192,7 @@ document.querySelectorAll('.wrapper .button').forEach(button => {
 
       if (isExpanded) {
         // If already expanded, open the link
-        window.location.href = this.getAttribute('href');
+        window.location.href = this.href;
       } else {
         // Otherwise, expand the button
         this.classList.add('expanded');
@@ -202,7 +202,6 @@ document.querySelectorAll('.wrapper .button').forEach(button => {
   });
 
   window.addEventListener('resize', function () {
-    // Reset all buttons when switching between screen sizes
     if (!window.matchMedia('(max-width: 768px)').matches) {
       document.querySelectorAll('.wrapper .button').forEach(btn => {
         btn.classList.remove('expanded');
