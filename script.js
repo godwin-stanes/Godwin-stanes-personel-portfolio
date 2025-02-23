@@ -175,42 +175,63 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   document.querySelectorAll('.wrapper .button').forEach(button => {
-    button.addEventListener('click', function(event) {
-      const isMobile = window.matchMedia('(max-width: 768px)').matches;
-      if (isMobile) {
-        event.preventDefault();
-        const isExpanded = this.getAttribute('data-expanded') === 'true';
-        if (isExpanded) {
-          window.location.href = this.href;
-        } else {
-          this.classList.add('expanded');
-          this.setAttribute('data-expanded', 'true');
+  button.addEventListener('click', function (event) {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    if (isMobile) {
+      event.preventDefault();
+
+      // Collapse all other buttons
+      document.querySelectorAll('.wrapper .button').forEach(btn => {
+        if (btn !== this) {
+          btn.classList.remove('expanded');
+          btn.setAttribute('data-expanded', 'false');
         }
+      });
+
+      const isExpanded = this.getAttribute('data-expanded') === 'true';
+      if (isExpanded) {
+        window.location.href = this.href;
+      } else {
+        this.classList.add('expanded');
+        this.setAttribute('data-expanded', 'true');
       }
-    });
-    button.addEventListener('mouseleave', function(){
-      this.classList.remove('expanded');
-      this.setAttribute('data-expanded', 'false');
-    });
-    button.addEventListener('touchstart', function(event) {
-      const isMobile = window.matchMedia('(max-width: 768px)').matches;
-      if (isMobile) {
-        event.preventDefault();
-        const isExpanded = this.getAttribute('data-expanded') === 'true';
-        if (isExpanded) {
-          window.location.href = this.href;
-        } else {
-          this.classList.add('expanded');
-          this.setAttribute('data-expanded', 'true');
-        }
-      }
-    });
-      window.addEventListener('resize', function(){
-          document.querySelectorAll('.wrapper .button').forEach(button=>{
-              if(!window.matchMedia('(max-width: 768px)').matches){
-                  button.classList.remove('expanded');
-                  button.setAttribute('data-expanded', 'false');
-              }
-          });
-      })
+    }
   });
+
+  button.addEventListener('mouseleave', function () {
+    this.classList.remove('expanded');
+    this.setAttribute('data-expanded', 'false');
+  });
+
+  button.addEventListener('touchstart', function (event) {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    if (isMobile) {
+      event.preventDefault();
+
+      // Collapse all other buttons
+      document.querySelectorAll('.wrapper .button').forEach(btn => {
+        if (btn !== this) {
+          btn.classList.remove('expanded');
+          btn.setAttribute('data-expanded', 'false');
+        }
+      });
+
+      const isExpanded = this.getAttribute('data-expanded') === 'true';
+      if (isExpanded) {
+        window.location.href = this.href;
+      } else {
+        this.classList.add('expanded');
+        this.setAttribute('data-expanded', 'true');
+      }
+    }
+  });
+
+  window.addEventListener('resize', function () {
+    document.querySelectorAll('.wrapper .button').forEach(btn => {
+      if (!window.matchMedia('(max-width: 768px)').matches) {
+        btn.classList.remove('expanded');
+        btn.setAttribute('data-expanded', 'false');
+      }
+    });
+  });
+});
