@@ -174,13 +174,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  document.querySelectorAll('.wrapper .button').forEach(button => {
+document.querySelectorAll('.wrapper .button').forEach(button => {
   button.addEventListener('click', function (event) {
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
     if (isMobile) {
-      event.preventDefault();
+      event.preventDefault(); // Prevent default behavior
 
-      // Collapse all other buttons
+      const isExpanded = this.getAttribute('data-expanded') === 'true';
+
+      // Collapse all other buttons before expanding the clicked one
       document.querySelectorAll('.wrapper .button').forEach(btn => {
         if (btn !== this) {
           btn.classList.remove('expanded');
@@ -188,38 +190,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
-      const isExpanded = this.getAttribute('data-expanded') === 'true';
       if (isExpanded) {
-        window.location.href = this.href;
+        // If already expanded, open the link
+        window.location.href = this.getAttribute('href');
       } else {
-        this.classList.add('expanded');
-        this.setAttribute('data-expanded', 'true');
-      }
-    }
-  });
-
-  button.addEventListener('mouseleave', function () {
-    this.classList.remove('expanded');
-    this.setAttribute('data-expanded', 'false');
-  });
-
-  button.addEventListener('touchstart', function (event) {
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    if (isMobile) {
-      event.preventDefault();
-
-      // Collapse all other buttons
-      document.querySelectorAll('.wrapper .button').forEach(btn => {
-        if (btn !== this) {
-          btn.classList.remove('expanded');
-          btn.setAttribute('data-expanded', 'false');
-        }
-      });
-
-      const isExpanded = this.getAttribute('data-expanded') === 'true';
-      if (isExpanded) {
-        window.location.href = this.href;
-      } else {
+        // Otherwise, expand the button
         this.classList.add('expanded');
         this.setAttribute('data-expanded', 'true');
       }
@@ -227,11 +202,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   window.addEventListener('resize', function () {
-    document.querySelectorAll('.wrapper .button').forEach(btn => {
-      if (!window.matchMedia('(max-width: 768px)').matches) {
+    // Reset all buttons when switching between screen sizes
+    if (!window.matchMedia('(max-width: 768px)').matches) {
+      document.querySelectorAll('.wrapper .button').forEach(btn => {
         btn.classList.remove('expanded');
         btn.setAttribute('data-expanded', 'false');
-      }
-    });
+      });
+    }
   });
 });
