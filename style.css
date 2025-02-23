@@ -180,8 +180,8 @@
             padding: 15px;
             background-color: var(--bgColor);
             animation: innerBg 7s infinite ease-in-out;
-            width: 90%;
-            height: 90%;
+            width: 95%;
+            height: 95%;
             overflow: hidden;
             position: relative;
         }
@@ -335,8 +335,8 @@
                 width: 19rem;
             }
             #inner {
-                width: 85%;
-                height: 85%;
+                width: 95%;
+                height: 95%;
             }
             .socialMedia a {
                 font-size: 1.8rem;
