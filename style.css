@@ -563,6 +563,7 @@
             font-size: 15px;
             color: var(--fColor);
             margin-top: 40px;
+                background: linear-gradient(250deg, #e2d9db);
             border: none;
             cursor: pointer;
         }
