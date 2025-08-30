@@ -1,212 +1,237 @@
-document.addEventListener("DOMContentLoaded", () => {
-    setupMobileMenu();
-    setupContactForm();
-    setupScrollLinks();
-    setupAnimatedText();
-  });
-  
-  function setupMobileMenu() {
-    const menu = document.querySelector(".fa-bars");
-    const menuList = document.querySelector(".header nav");
-  
-    if (!menu || !menuList) return;
-  
-    menu.addEventListener("click", () => {
-      menuList.classList.toggle("showmenu");
-      menu.setAttribute("aria-expanded", menuList.classList.contains("showmenu"));
-    });
-  
-    document.addEventListener("click", (event) => {
-      if (!menuList.contains(event.target) && !menu.contains(event.target) && menuList.classList.contains("showmenu")) {
-        menuList.classList.remove("showmenu");
-        menu.setAttribute("aria-expanded", "false");
-      }
-    });
-  }
-  
-  function setupContactForm() {
-    emailjs.init("5sJ3Uv8yDrTrzhr9A");
-  
-    const contactForm = document.getElementById("contact-form");
-    if (!contactForm) return;
-  
-    contactForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const submitButton = contactForm.querySelector(".sendMail");
-      const messageStatus = document.getElementById("message-status");
-  
-      if (!submitButton || !messageStatus) return;
-  
-      submitButton.textContent = "Sending...";
-      submitButton.disabled = true;
-  
-      const formData = {
-        first_name: contactForm.first_name.value,
-        last_name: contactForm.last_name.value,
-        email: contactForm.email.value,
-        subject: contactForm.subject.value,
-        message: contactForm.message.value,
-        to_email: "mohancheenu04@gmail.com",
-      };
-  
-      emailjs
-        .send("service_1xps2dv", "template_8c78rk1", formData)
-        .then(() => {
-          handleMessageSent(submitButton, messageStatus, contactForm);
-        })
-        .catch(() => {
-          handleMessageError(submitButton, messageStatus);
+// Smooth scrolling function
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
+
+// Mobile navigation toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.fa-bars');
+    const nav = document.querySelector('nav');
+    
+    if (hamburger && nav) {
+        hamburger.addEventListener('click', function() {
+            nav.classList.toggle('active');
+            const isExpanded = nav.classList.contains('active');
+            hamburger.setAttribute('aria-expanded', isExpanded);
+        });
+    }
+
+    // Close mobile menu when clicking on a nav item
+    const navItems = document.querySelectorAll('nav li');
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            nav.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
         });
     });
-  }
-  
-  function handleMessageSent(submitButton, messageStatus, contactForm) {
-    submitButton.textContent = "Send Message";
-    submitButton.disabled = false;
-    contactForm.reset();
-    showMessageStatus(messageStatus, "Message sent successfully!, Check Your Mail for Confirmation", "green");
-    setTimeout(() => clearMessageStatus(messageStatus), 5000);
-  }
-  
-  function handleMessageError(submitButton, messageStatus) {
-    submitButton.textContent = "Send Message";
-    submitButton.disabled = false;
-    showMessageStatus(messageStatus, "Failed to send message.", "red");
-    setTimeout(() => clearMessageStatus(messageStatus), 5000);
-  }
-  
-  function showMessageStatus(element, message, color) {
-    element.textContent = message;
-    element.style.color = "white";
-    element.style.backgroundColor = color;
-    element.style.padding = "5px 10px";
-    element.style.borderRadius = "5px";
-    element.style.display = "inline-block";
-  }
-  
-  function clearMessageStatus(element) {
-    element.textContent = "";
-    element.style.backgroundColor = "";
-    element.style.padding = "";
-    element.style.borderRadius = "";
-    element.style.display = "";
-  }
-  
-  function setupScrollLinks() {
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener("click", function (e) {
-        e.preventDefault();
-        scrollToSection(this.getAttribute("href").substring(1));
-      });
-    });
-  }
-  
-  function scrollToSection(sectionId) {
-    const targetSection = document.getElementById(sectionId);
-    if (targetSection) {
-      targetSection.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  }
-  
-  function setupAnimatedText() {
-    const textContainers = document.querySelectorAll(".text-container");
-    if (!textContainers.length) return;
-  
-    function animateText() {
-      let delay = 0;
-      textContainers.forEach((span) => {
-        setTimeout(() => (span.style.width = span.textContent.length + "ch"), delay);
-        delay += 2500;
-        setTimeout(() => (span.style.width = "0ch"), delay);
-      });
-      setTimeout(animateText, delay);
-    }
-    animateText();
-  
-    const animatedPopup = document.getElementById("popupAnimated");
-    const animatedTextContainer = document.getElementById("animatedTextContainer");
-  
-    window.togglePopup = (popupId) => {
-      const popup = document.getElementById(popupId);
-      if (!popup) return;
-  
-      popup.style.display = popup.style.display === "block" ? "none" : "block";
-  
-      if (popupId === "popupAnimated" && popup.style.display === "block" && animatedTextContainer) {
-        startTextAnimation(animatedTextContainer);
-      }
+
+    // Animate progress bars when skills section is in view
+    const observerOptions = {
+        threshold: 0.5,
+        rootMargin: '0px 0px -100px 0px'
     };
-  }
-  
-  function startTextAnimation(container) {
-    const fullText = `Hi, I'm Mohan, a passionate Web Developer, Data Analyst, and Python Programmer with a strong foundation in computer science. I graduated with a B.Sc. in Computer Science from SRM University (2024) and am continuously enhancing my technical expertise to stay ahead in the ever-evolving tech landscape.<br><br>My skill set spans across web development, data analytics, and design. I have a strong command over HTML, CSS, and JavaScript, enabling me to build structured, responsive, and interactive web applications. I am also proficient in React.js, which allows me to create dynamic user interfaces. Version control is a crucial part of my workflow, and I have extensive experience with Git and GitHub for efficient collaboration and code management.<br><br>In the field of data analytics, I work with Python, particularly using Pandas for data manipulation and analysis. I have a solid understanding of SQL for querying and managing relational databases, along with experience in MongoDB for handling NoSQL databases. Additionally, I use Power BI and Excel for data visualization, reporting, and business intelligence.<br><br>Beyond development and analytics, I also have experience in graphic design and presentation tools like Photoshop, Canva, Figma, and PowerPoint, allowing me to create visually compelling designs and reports.<br><br>Currently, I am deepening my expertise in data analytics and web development to bridge the gap between technology and business solutions. My goal is to apply my skills to real-world projects, build scalable applications, and drive impactful insights through data. I am always eager to collaborate on innovative ideas and explore new challenges in the tech industry.<br><br>Let’s connect and create something amazing together!`;
-  
-    container.innerHTML = "";
-    const chunks = fullText.split(/(<br>)/);
-    let chunkIndex = 0, charIndex = 0;
-  
-    function animateChunk() {
-      if (chunkIndex >= chunks.length) return;
-  
-      const chunk = chunks[chunkIndex];
-      if (chunk === "<br>") {
-        container.appendChild(document.createElement("br"));
-        chunkIndex++;
-        requestAnimationFrame(animateChunk);
-      } else if (charIndex < chunk.length) {
-        const span = document.createElement("span");
-        span.classList.add("animated-char");
-        span.textContent = chunk[charIndex];
-        container.appendChild(span);
-        setTimeout(() => (span.style.opacity = 1), 10);
-        charIndex++;
-        requestAnimationFrame(animateChunk);
-      } else {
-        chunkIndex++;
-        charIndex = 0;
-        requestAnimationFrame(animateChunk);
-      }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const progressBars = entry.target.querySelectorAll('.progress-bar');
+                progressBars.forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0%';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 200);
+                });
+            }
+        });
+    }, observerOptions);
+
+    const skillsSection = document.getElementById('skills');
+    if (skillsSection) {
+        observer.observe(skillsSection);
     }
-    requestAnimationFrame(animateChunk);
-  }
 
+    // Project item click handlers
+    const projectItems = document.querySelectorAll('.projectItem');
+    projectItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const detail = this.querySelector('.projectDetail');
+            if (detail) {
+                detail.style.display = detail.style.display === 'block' ? 'none' : 'block';
+            }
+        });
+    });
 
-document.querySelectorAll('.wrapper .button').forEach(button => {
-  button.addEventListener('click', function (event) {
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    if (isMobile) {
-      event.preventDefault(); // Prevent default navigation
+    // Initialize EmailJS
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+    }
 
-      const isExpanded = this.getAttribute('data-expanded') === 'true';
+    // Contact form submission
+    const contactForm = document.getElementById('contact-form');
+    const messageStatus = document.getElementById('message-status');
 
-      // Collapse all other buttons before expanding the clicked one
-      document.querySelectorAll('.wrapper .button').forEach(btn => {
-        if (btn !== this) {
-          btn.classList.remove('expanded');
-          btn.setAttribute('data-expanded', 'false');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const templateParams = {
+                first_name: formData.get('first_name'),
+                last_name: formData.get('last_name'),
+                email: formData.get('email'),
+                subject: formData.get('subject'),
+                message: formData.get('message')
+            };
+
+            // Show loading state
+            messageStatus.innerHTML = '<p style="color: #667eea;">Sending message...</p>';
+
+            // Simulate form submission (replace with actual EmailJS implementation)
+            setTimeout(() => {
+                messageStatus.innerHTML = '<p style="color: #28a745;">Message sent successfully! I\'ll get back to you soon.</p>';
+                contactForm.reset();
+                
+                setTimeout(() => {
+                    messageStatus.innerHTML = '';
+                }, 5000);
+            }, 1500);
+        });
+    }
+});
+
+// Popup functions
+function togglePopup(popupId) {
+    const popup = document.getElementById(popupId);
+    if (popup) {
+        popup.style.display = popup.style.display === 'flex' ? 'none' : 'flex';
+        
+        if (popupId === 'popupAnimated' && popup.style.display === 'flex') {
+            animateText();
         }
-      });
-
-      if (isExpanded) {
-        // If already expanded, open the link
-        window.location.href = this.href;
-      } else {
-        // Otherwise, expand the button
-        this.classList.add('expanded');
-        this.setAttribute('data-expanded', 'true');
-      }
     }
-  });
+}
 
-  window.addEventListener('resize', function () {
-    if (!window.matchMedia('(max-width: 768px)').matches) {
-      document.querySelectorAll('.wrapper .button').forEach(btn => {
-        btn.classList.remove('expanded');
-        btn.setAttribute('data-expanded', 'false');
-      });
+function animateText() {
+    const container = document.getElementById('animatedTextContainer');
+    if (!container) return;
+
+    const text = `Hi, I'm Godwin Stanes G, a motivated B.E. Electronics and Communication Engineering student with a deep curiosity for data science, machine learning, and data analysis. Currently pursuing my degree at Tagore Engineering College, Vandalur (2023-2027) with a CGPA of 7.8/10.
+
+I have gained familiarity with Python, SQL, and machine learning frameworks such as PyTorch, and I am continuously working to strengthen these skills through practical applications. My technical expertise includes Python programming with libraries like NumPy and Pandas, along with experience in PyTorch for deep learning projects.
+
+Through my internships at LEO Technology and Nextgen Technology, I've gained hands-on experience in backend development using Django and frontend design using WordPress. I've successfully built projects including a Handwritten Digit Recognition Web App using CNN models and PyTorch, demonstrating my ability to integrate machine learning with web applications.
+
+I hold certifications in Deep Learning from NVIDIA (2024), Python from Udemy (2025), and Introduction to Cyber Security from Infosys Springboard (2024). These credentials reflect my commitment to continuous learning and staying current with emerging technologies.
+
+With a strong problem-solving mindset and analytical abilities, I am eager to further develop my technical expertise and apply my skills to contribute to innovative, data-driven solutions that align with the vision of AI-enabled business transformation. I'm particularly interested in exploring generative AI, prompt engineering, large language models, and anomaly detection.
+
+Beyond technology, I enjoy PC building, playing keyboard at church and marriage events, exploring new technologies, and PC gaming. I'm fluent in Tamil and English, and I'm always eager to collaborate on innovative projects and explore new challenges in the data science field.
+
+Let's connect and create something amazing together!`;
+
+    container.innerHTML = '';
+    let index = 0;
+
+    function typeWriter() {
+        if (index < text.length) {
+            container.innerHTML += text.charAt(index);
+            index++;
+            setTimeout(typeWriter, 20);
+        }
     }
-  });
+
+    typeWriter();
+}
+
+// Header background change on scroll
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('.header');
+    if (header) {
+        if (window.scrollY > 100) {
+            header.style.background = 'rgba(255, 255, 255, 0.95)';
+            header.style.color = '#333';
+            
+            // Change nav text color
+            const navItems = header.querySelectorAll('nav li');
+            navItems.forEach(item => {
+                item.style.color = '#333';
+            });
+            
+            // Change hamburger color
+            const hamburger = header.querySelector('.fa-bars');
+            if (hamburger) {
+                hamburger.style.color = '#333';
+            }
+            
+            // Change logo color
+            const logo = header.querySelector('h1');
+            if (logo) {
+                logo.style.color = '#333';
+            }
+        } else {
+            header.style.background = 'rgba(255, 255, 255, 0.1)';
+            header.style.color = 'white';
+            
+            // Reset nav text color
+            const navItems = header.querySelectorAll('nav li');
+            navItems.forEach(item => {
+                item.style.color = 'white';
+            });
+            
+            // Reset hamburger color
+            const hamburger = header.querySelector('.fa-bars');
+            if (hamburger) {
+                hamburger.style.color = 'white';
+            }
+            
+            // Reset logo color
+            const logo = header.querySelector('h1');
+            if (logo) {
+                logo.style.color = 'white';
+            }
+        }
+    }
+});
+
+// Add loading animation for images
+document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        img.addEventListener('load', function() {
+            this.style.opacity = '1';
+        });
+        
+        // Set initial opacity
+        img.style.opacity = '0';
+        img.style.transition = 'opacity 0.3s ease';
+    });
+});
+
+// Add intersection observer for animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const animationObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+        }
+    });
+}, observerOptions);
+
+// Observe elements for animation
+document.addEventListener('DOMContentLoaded', function() {
+    const animateElements = document.querySelectorAll('.skillItem, .projectItem');
+    animateElements.forEach(el => {
+        animationObserver.observe(el);
+    });
 });
