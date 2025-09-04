@@ -50,20 +50,51 @@
 </head>
 
 <body>
-    <section id="home" class="homePageSection">
-        <div class="header">
-            <h1>Welcome</h1>
-            <i class="fa-solid fa-bars" aria-label="Toggle Navigation" aria-expanded="false"></i>
-            <nav>
-                <ul>
-                    <li onclick="scrollToSection('home')">Home</li>
-                    <li onclick="scrollToSection('skills')">About</li>
-                    <li onclick="scrollToSection('skills')">Skills</li>
-                    <li onclick="scrollToSection('projects')">Project</li>
-                    <li onclick="scrollToSection('contact')">Contact</li>
-                </ul>
-            </nav>
+   <section id="home" class="homePageSection">
+  <div class="header">
+    <h1>Welcome</h1>
+    <i class="fa-solid fa-bars" aria-label="Toggle Navigation" aria-expanded="false"></i>
+    <nav>
+      <ul>
+        <li onclick="scrollToSection('home')">Home</li>
+        <li onclick="scrollToSection('skills')">About</li>
+        <li onclick="scrollToSection('skills')">Skills</li>
+        <li onclick="scrollToSection('projects')">Project</li>
+        <li onclick="scrollToSection('contact')">Contact</li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- ✅ Intro section with text + profile -->
+
+    </div>  <div class="intro">
+    <div class="intro">
+    <div class="intro-text">
+    <p>Hi, I'm <span id="mohan">Godwin Stanes</span></p>
+    <p>An aspiring</p>
+    <p class="role-highlight">Data Scientist • ML Engineer • AI Developer</p>
+    <p>Ready to transform data into actionable insights and solutions.</p>
+</div>
+
+
+    <div class="profile">
+        <div id="inner">
+            <img src="assets/me.png" alt="Godwin Stanes">
         </div>
+    </div>
+</div>
+
+
+  <!-- ✅ Resume & Hire Me buttons (keep them here) -->
+  <div class="hireButton">
+    <a class="resume" id="res" href="assets/Godwin_Stanes_G_Resume.pdf" download>Resume</a>
+    <a class="resume" id="hireMe" href="mailto:dsgstanes@gmail.com">Hire Me</a>
+  </div>
+
+  </div>
+  
+</section>
+
         <div class="socialMedia">
             <a href="https://github.com/GODWIN-STANES" target="_blank" aria-label="GitHub"><i
                     class="fa-brands fa-github"></i></a>
@@ -76,23 +107,7 @@
             <a href="https://wa.me/919514134518" target="_blank" aria-label="WhatsApp"><i
                     class="fa-brands fa-whatsapp"></i></a>
         </div>
-        <div class="intro">
-            <p>Hi, I'm <span id="mohan">Godwin</span><br>An aspiring <br>
-                <span class="text-container" id="text1">Data Scientist</span>
-                <span class="text-container" id="text2">ML Engineer</span>
-                <span class="text-container" id="text3">AI Developer</span>
-                <br>ready to transform data into <br>actionable insights and solutions.
-            </p>
-        </div>
-        <div class="profile">
-            <div id="inner">
-                <img src="assets/Me.png" alt="profile">
-            </div>
-        </div>
-        <div class="hireButton">
-            <a class="resume" id="res" href="assets/Godwin_Stanes_G_Resume.pdf" download>Resume</a>
-            <a class="resume" id="hireMe" href="mailto:dsgstanes@gmail.com">Hire Me</a>
-        </div>
+
     </section>
 
     <section id="skills" class="skillsPageSection">
@@ -405,6 +420,7 @@
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script src="script.js"></script>
 
+    
 </body>
 
 </html>

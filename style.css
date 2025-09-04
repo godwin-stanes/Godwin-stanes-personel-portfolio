@@ -137,23 +137,9 @@ body {
     33.34%, 100% { opacity: 0; }
 }
 
-.profile {
-    position: fixed;
-    right: 5rem;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 100;
-}
 
-#inner {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 5px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
-}
+
+
 
 #inner:hover {
     transform: scale(1.05);
@@ -533,13 +519,194 @@ footer {
         display: block;
     }
 
-    .profile {
-        position: static;
-        transform: none;
-        margin: 2rem auto;
-    }
-
     .intro p {
         font-size: 2rem;
     }
 }
+/* ... all your old styles ... */
+
+/* Profile container for HOME section */
+
+/* Profile image inside the container */
+.homePageSection #inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.homePageSection #inner:hover {
+    transform: scale(1.05);
+    border-color: #FFD700;
+}
+
+/* Make it responsive for smaller screens */
+@media (max-width: 900px) {
+
+
+    .homePageSection #inner {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+/*new for my name style*/
+/* Intro Section */
+.intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 6rem 2rem 3rem;
+    flex-wrap: wrap;
+    margin-top: 80px;
+}
+
+.intro-text {
+    max-width: 600px;
+    text-align: left;
+    color: white;
+}
+
+.intro-text p {
+    margin: 0.5rem 0;
+}
+
+#mohan {
+    font-family: 'Pacifico', cursive;
+    color: #FFD700;
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.role {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    color: #f0f0f0;
+    margin-top: 0.8rem;
+    line-height: 1.5;
+}
+
+/* Profile Image */
+
+.homePageSection #inner {
+    width: 260px;      /* same width and height */
+    height: 260px;
+    border-radius: 50%; /* makes it a perfect circle */
+    overflow: hidden;
+}
+
+.homePageSection #inner img {
+    width: 100%;      /* fills the container */
+    height: 100%;     /* maintains the circle */
+    object-fit: cover; /* ensures image scales without distortion */
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .homePageSection .intro {
+        flex-direction: column;
+        text-align: center;
+    }
+    .homePageSection #inner {
+        width: 220px;
+        height: 220px;
+    }
+}
+
+#inner {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .intro {
+        flex-direction: column;
+        text-align: center;
+    }
+    .profile {
+        order: -1;
+    }
+    #inner {
+        width: 220px;
+        height: 220px;
+    }
+}
+
+/*again another
+
+/* ===== PROFILE CIRCLE ===== */
+.homePageSection .profile {
+    position: static;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 350px;   /* bigger circle */
+    height: 350px;
+}
+
+.homePageSection #inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.homePageSection #inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 900px) {
+    .homePageSection .profile {
+        width: 260px;
+        height: 260px;
+        order: -1;
+    }
+
+    .homePageSection #inner {
+        width: 100%;
+        height: 100%;
+    }
+}
+ 
+
+/* for my name of heading*/
+
+.role-highlight {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #FFD700, #FF8C00); /* bright gold → orange */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/*for black text*/
+
+.skillsPageSection .intro-text {
+    color: #000000; /* black */
+    font-size: 1.1rem; 
+    line-height: 1.6;
+}
+
+
+
+

@@ -68,19 +68,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Initialize EmailJS
+    // ======================
+    // ✅ EmailJS Integration
+    // ======================
     if (typeof emailjs !== 'undefined') {
-        emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+        // Replace with your EmailJS Public Key
+        emailjs.init("YOUR_PUBLIC_KEY");
     }
 
-    // Contact form submission
     const contactForm = document.getElementById('contact-form');
     const messageStatus = document.getElementById('message-status');
 
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
+
             const formData = new FormData(this);
             const templateParams = {
                 first_name: formData.get('first_name'),
@@ -90,18 +92,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 message: formData.get('message')
             };
 
-            // Show loading state
+            // Show loading message
             messageStatus.innerHTML = '<p style="color: #667eea;">Sending message...</p>';
 
-            // Simulate form submission (replace with actual EmailJS implementation)
-            setTimeout(() => {
-                messageStatus.innerHTML = '<p style="color: #28a745;">Message sent successfully! I\'ll get back to you soon.</p>';
-                contactForm.reset();
-                
-                setTimeout(() => {
-                    messageStatus.innerHTML = '';
-                }, 5000);
-            }, 1500);
+            // 🔹 Replace with your actual EmailJS Service ID & Template ID
+            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
+                .then(() => {
+                    messageStatus.innerHTML = '<p style="color: #28a745;">Message sent successfully! I\'ll get back to you soon.</p>';
+                    contactForm.reset();
+                    setTimeout(() => { messageStatus.innerHTML = ''; }, 5000);
+                })
+                .catch(() => {
+                    messageStatus.innerHTML = '<p style="color: red;">Oops! Something went wrong. Try again later.</p>';
+                });
         });
     }
 });
@@ -158,44 +161,26 @@ window.addEventListener('scroll', function() {
             header.style.background = 'rgba(255, 255, 255, 0.95)';
             header.style.color = '#333';
             
-            // Change nav text color
             const navItems = header.querySelectorAll('nav li');
-            navItems.forEach(item => {
-                item.style.color = '#333';
-            });
-            
-            // Change hamburger color
+            navItems.forEach(item => item.style.color = '#333');
+
             const hamburger = header.querySelector('.fa-bars');
-            if (hamburger) {
-                hamburger.style.color = '#333';
-            }
-            
-            // Change logo color
+            if (hamburger) hamburger.style.color = '#333';
+
             const logo = header.querySelector('h1');
-            if (logo) {
-                logo.style.color = '#333';
-            }
+            if (logo) logo.style.color = '#333';
         } else {
             header.style.background = 'rgba(255, 255, 255, 0.1)';
             header.style.color = 'white';
             
-            // Reset nav text color
             const navItems = header.querySelectorAll('nav li');
-            navItems.forEach(item => {
-                item.style.color = 'white';
-            });
-            
-            // Reset hamburger color
+            navItems.forEach(item => item.style.color = 'white');
+
             const hamburger = header.querySelector('.fa-bars');
-            if (hamburger) {
-                hamburger.style.color = 'white';
-            }
-            
-            // Reset logo color
+            if (hamburger) hamburger.style.color = 'white';
+
             const logo = header.querySelector('h1');
-            if (logo) {
-                logo.style.color = 'white';
-            }
+            if (logo) logo.style.color = 'white';
         }
     }
 });
@@ -207,28 +192,20 @@ document.addEventListener('DOMContentLoaded', function() {
         img.addEventListener('load', function() {
             this.style.opacity = '1';
         });
-        
-        // Set initial opacity
         img.style.opacity = '0';
         img.style.transition = 'opacity 0.3s ease';
     });
 });
 
-// Add intersection observer for animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
+// Intersection observer for animations
 const animationObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('animate-in');
         }
     });
-}, observerOptions);
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-// Observe elements for animation
 document.addEventListener('DOMContentLoaded', function() {
     const animateElements = document.querySelectorAll('.skillItem, .projectItem');
     animateElements.forEach(el => {
